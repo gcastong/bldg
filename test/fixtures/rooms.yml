@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  spacename: MyString
+  spacenumber: MyString
+  area: 1
+
+two:
+  spacename: MyString
+  spacenumber: MyString
+  area: 1

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Spacename:</strong>
+  <%= @room.spacename %>
+</p>
+
+<p>
+  <strong>Spacenumber:</strong>
+  <%= @room.spacenumber %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @room.area %>
+</p>
+
+<h2>Equipments</h2>
+<table>
+<tr>
+ <th>Equipment tag</th>
+ <th>Quantity</th>
+</tr>
+
+
+<% @room.room_equipments.each do |eq| %>
+<tr> 
+ <td><%= eq.tag %></td>
+ <td><%= eq.quantity %></td>
+</tr>
+
+<% end %>
+
+</table>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tag: MyString
+  name: MyString
+  description: MyText
+  note: MyText
+  length: 9.99
+  width: 9.99
+  height: 9.99
+  power: 9.99
+  fractionlatent: 9.99
+  fractionradiant: 9.99
+  fractionlost: 9.99
+  endusesubcategory: MyText
+  domesticcoldwater: false
+  domestichotwater: false
+  hotwater: false
+  chilledwater: false
+  drainage: false
+  purifiedwatertype1: false
+  purifiedWatertype2: false
+  purifiedwatertype3: false
+  naturalgas: false
+  propane: false
+  compressedair: false
+  nitrogen: false
+  datasheet: 
+
+two:
+  tag: MyString
+  name: MyString
+  description: MyText
+  note: MyText
+  length: 9.99
+  width: 9.99
+  height: 9.99
+  power: 9.99
+  fractionlatent: 9.99
+  fractionradiant: 9.99
+  fractionlost: 9.99
+  endusesubcategory: MyText
+  domesticcoldwater: false
+  domestichotwater: false
+  hotwater: false
+  chilledwater: false
+  drainage: false
+  purifiedwatertype1: false
+  purifiedWatertype2: false
+  purifiedwatertype3: false
+  naturalgas: false
+  propane: false
+  compressedair: false
+  nitrogen: false
+  datasheet: 

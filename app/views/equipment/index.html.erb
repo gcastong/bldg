@@ -1,0 +1,75 @@
+<h1>Listing equipment</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Note</th>
+      <th>Length</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th>Power</th>
+      <th>Fractionlatent</th>
+      <th>Fractionradiant</th>
+      <th>Fractionlost</th>
+      <th>Endusesubcategory</th>
+      <th>Domesticcoldwater</th>
+      <th>Domestichotwater</th>
+      <th>Hotwater</th>
+      <th>Chilledwater</th>
+      <th>Drainage</th>
+      <th>Purifiedwatertype1</th>
+      <th>Purifiedwatertype2</th>
+      <th>Purifiedwatertype3</th>
+      <th>Naturalgas</th>
+      <th>Propane</th>
+      <th>Compressedair</th>
+      <th>Nitrogen</th>
+      <th>Datasheet</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipment.each do |equipment| %>
+      <tr>
+        <td><%= equipment.tag %></td>
+        <td><%= equipment.name %></td>
+        <td><%= equipment.description %></td>
+        <td><%= equipment.note %></td>
+        <td><%= equipment.length %></td>
+        <td><%= equipment.width %></td>
+        <td><%= equipment.height %></td>
+        <td><%= equipment.power %></td>
+        <td><%= equipment.fractionlatent %></td>
+        <td><%= equipment.fractionradiant %></td>
+        <td><%= equipment.fractionlost %></td>
+        <td><%= equipment.endusesubcategory %></td>
+        <td><%= equipment.domesticcoldwater %></td>
+        <td><%= equipment.domestichotwater %></td>
+        <td><%= equipment.hotwater %></td>
+        <td><%= equipment.chilledwater %></td>
+        <td><%= equipment.drainage %></td>
+        <td><%= equipment.purifiedwatertype1 %></td>
+        <td><%= equipment.purifiedWatertype2 %></td>
+        <td><%= equipment.purifiedwatertype3 %></td>
+        <td><%= equipment.naturalgas %></td>
+        <td><%= equipment.propane %></td>
+        <td><%= equipment.compressedair %></td>
+        <td><%= equipment.nitrogen %></td>
+        <td><%= equipment.datasheet %></td>
+        <td><%= link_to 'Show', equipment %></td>
+        <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
+        <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipment', new_equipment_path %>
