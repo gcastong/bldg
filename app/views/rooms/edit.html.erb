@@ -6,7 +6,7 @@
 <%= form_for([@room, @room.room_equipments.build]) do |f| %>
  <p>
   <%= f.label :tag %>
-  <%= f.collection_select(:id, Equipment.all, :tag, :tag, :prompt =>'Please select') %>
+  <%= f.collection_select(:tag, Equipment.all, :id, :tag, :prompt =>'Please select') %>
 
  </p>
  <p>

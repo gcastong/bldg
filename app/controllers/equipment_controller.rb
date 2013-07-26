@@ -10,6 +10,7 @@ class EquipmentController < ApplicationController
   # GET /equipment/1
   # GET /equipment/1.json
   def show
+    @ReadOnlyField = true
   end
 
   # GET /equipment/new
@@ -19,6 +20,7 @@ class EquipmentController < ApplicationController
 
   # GET /equipment/1/edit
   def edit
+   @ReadOnlyField = false
   end
 
   # POST /equipment

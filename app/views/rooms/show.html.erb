@@ -18,14 +18,17 @@
 <h2>Equipments</h2>
 <table>
 <tr>
- <th>Equipment tag</th>
+ <th>Tag</th>
+ <th>Name</td>
  <th>Quantity</th>
 </tr>
 
 
 <% @room.room_equipments.each do |eq| %>
+<% @equipment = Equipment.find(eq.tag) %>
 <tr> 
- <td><%= eq.tag %></td>
+ <td><%= @equipment.tag %></td>
+ <td><%= @equipment.name %></td>
  <td><%= eq.quantity %></td>
 </tr>
 

@@ -1,5 +1,4 @@
-<%= form_for(@equipment) do |f| %>
-  <% if @equipment.errors.any? %>
+ <% if @equipment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
 
@@ -9,109 +8,51 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+ <% end %>
 
-  <div class="field">
-    <%= f.label :tag %><br>
-    <%= f.text_field :tag %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br>
-    <%= f.text_area :note %>
-  </div>
-  <div class="field">
-    <%= f.label :length %><br>
-    <%= f.text_field :length %>
-  </div>
-  <div class="field">
-    <%= f.label :width %><br>
-    <%= f.text_field :width %>
-  </div>
-  <div class="field">
-    <%= f.label :height %><br>
-    <%= f.text_field :height %>
-  </div>
-  <div class="field">
-    <%= f.label :power %><br>
-    <%= f.text_field :power %>
-  </div>
-  <div class="field">
-    <%= f.label :fractionlatent %><br>
-    <%= f.text_field :fractionlatent %>
-  </div>
-  <div class="field">
-    <%= f.label :fractionradiant %><br>
-    <%= f.text_field :fractionradiant %>
-  </div>
-  <div class="field">
-    <%= f.label :fractionlost %><br>
-    <%= f.text_field :fractionlost %>
-  </div>
-  <div class="field">
-    <%= f.label :endusesubcategory %><br>
-    <%= f.text_area :endusesubcategory %>
-  </div>
-  <div class="field">
-    <%= f.label :domesticcoldwater %><br>
-    <%= f.check_box :domesticcoldwater %>
-  </div>
-  <div class="field">
-    <%= f.label :domestichotwater %><br>
-    <%= f.check_box :domestichotwater %>
-  </div>
-  <div class="field">
-    <%= f.label :hotwater %><br>
-    <%= f.check_box :hotwater %>
-  </div>
-  <div class="field">
-    <%= f.label :chilledwater %><br>
-    <%= f.check_box :chilledwater %>
-  </div>
-  <div class="field">
-    <%= f.label :drainage %><br>
-    <%= f.check_box :drainage %>
-  </div>
-  <div class="field">
-    <%= f.label :purifiedwatertype1 %><br>
-    <%= f.check_box :purifiedwatertype1 %>
-  </div>
-  <div class="field">
-    <%= f.label :purifiedWatertype2 %><br>
-    <%= f.check_box :purifiedWatertype2 %>
-  </div>
-  <div class="field">
-    <%= f.label :purifiedwatertype3 %><br>
-    <%= f.check_box :purifiedwatertype3 %>
-  </div>
-  <div class="field">
-    <%= f.label :naturalgas %><br>
-    <%= f.check_box :naturalgas %>
-  </div>
-  <div class="field">
-    <%= f.label :propane %><br>
-    <%= f.check_box :propane %>
-  </div>
-  <div class="field">
-    <%= f.label :compressedair %><br>
-    <%= f.check_box :compressedair %>
-  </div>
-  <div class="field">
-    <%= f.label :nitrogen %><br>
-    <%= f.check_box :nitrogen %>
-  </div>
-  <div class="field">
-    <%= f.label :datasheet %><br>
-    <%= f.text_field :datasheet %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+<%= semantic_form_for @equipment do |f| %>
+ <%= f.inputs "General informations", :id => "general" do %>
+	<%= f.input :name, :input_html => { :readonly => @ReadOnlyField } %>
+	<%= f.input :tag, :input_html => { :readonly => @ReadOnlyField } %>
+	<%= f.input :description, :input_html => { :class => 'autogrow', :rows => 3, :cols => 50, :maxlength => 250, :readonly => @ReadOnlyField  } %>
+	<%= f.input :note, :input_html => { :class => 'autogrow', :rows => 3, :cols => 50, :maxlength => 250, :readonly => @ReadOnlyField  } %>
+ <% end %>
+ <%= f.inputs "Dimensions", :id => "dimensions" do %>
+	<%= f.input :length, :input_html => { :readonly => @ReadOnlyField } %>
+	<%= f.input :width, :input_html => { :readonly => @ReadOnlyField } %>
+	<%= f.input :height, :input_html => { :readonly => @ReadOnlyField } %>
+ <% end %>
+ <%= f.inputs "Mechanical Services", :id => "mechanicalservices" do %>
+	<%= f.input :domesticcoldwater, :label => "Domestic Cold Water", :input_html => { :disabled => @ReadOnlyField } %>
+	<%= f.input :domestichotwater, :label => "Domestic Hot Water", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :drainage, :label => "Drainage", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :hotwater, :label => "Heating Hot Water", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :chilledwater, :label => "Chilled Water", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :purifiedwatertype1, :label => "Purified Water Type I", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :purifiedWatertype2, :label => "Purified Water Type II", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :purifiedwatertype3, :label => "Purified Water Type III", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :naturalgas, :label => "Natural Gas", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :propane, :label => "Propane", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :compressedair, :label => "Compressed Air", :input_html => { :disabled => @ReadOnlyField }  %>
+	<%= f.input :nitrogen, :label => "Nitrogen", :input_html => { :disabled => @ReadOnlyField }  %>
+ <% end %>
+ <%= f.inputs "Energy Model", :id => "energymodel" do %>
+	<%= f.input :power, :input_html => { :readonly => @ReadOnlyField } %>
+	<%= f.input :fractionlatent, :label => "Fraction Latent", :input_html => { :readonly => @ReadOnlyField } %>
+	<%= f.input :fractionradiant, :label => "Fraction Radiant", :input_html => { :readonly => @ReadOnlyField } %>
+	<%= f.input :fractionlost, :label => "Fraction Lost", :input_html => { :readonly => @ReadOnlyField } %>
+	<%= f.input :endusesubcategory, :label => "End Use Subcategory", :input_html => {:rows =>1, :cols => 30, :readonly => @ReadOnlyField} %>
+ <% end %>
+ 
+<%= f.inputs "Datasheet", :id => "datasheet" do %>
+	
+	<%= f.input :datasheet, :as => :file %>
+ <% end %>
+<% if @ReadOnlyField = false %>
+	<%= f.actions do %>
+ 	<%= f.action :submit %>
+	<% end %>
 <% end %>
+<% end %>
+     
