@@ -1,0 +1,53 @@
+ <% if @equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+
+      <ul>
+      <% @equipment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<%= semantic_form_for @equipment do |f| %>
+ <%= f.inputs "General informations", :id => "general" do %>
+	<%= f.input :name, :input_html => {:disabled => true }%>
+	<%= f.input :tag %>
+	<%= f.input :description, :input_html => { :class => 'autogrow', :rows => 3, :cols => 50, :maxlength => 250  } %>
+	<%= f.input :note, :input_html => { :class => 'autogrow', :rows => 3, :cols => 50, :maxlength => 250  } %>
+ <% end %>
+ <%= f.inputs "Dimensions", :id => "dimensions" do %>
+	<%= f.input :length %>
+	<%= f.input :width %>
+	<%= f.input :height %>
+ <% end %>
+ <%= f.inputs "Mechanical Services", :id => "mechanicalservices" do %>
+	<%= f.input :domesticcoldwater, :label => "Domestic Cold Water" %>
+	<%= f.input :domestichotwater, :label => "Domestic Hot Water"  %>
+	<%= f.input :hotwater, :label => "Heating Hot Water"  %>
+	<%= f.input :chilledwater, :label => "Chilled Water"  %>
+	<%= f.input :purifiedwatertype1, :label => "Purified Water Type I"  %>
+	<%= f.input :purifiedWatertype2, :label => "Purified Water Type II"  %>
+	<%= f.input :purifiedwatertype3, :label => "Purified Water Type III"  %>
+	<%= f.input :naturalgas, :label => "Natural Gas"  %>
+	<%= f.input :propane, :label => "Propane"  %>
+	<%= f.input :compressedair, :label => "Compressed Air"  %>
+	<%= f.input :nitrogen, :label => "Nitrogen"  %>
+ <% end %>
+ <%= f.inputs "Energy Model", :id => "energymodel" do %>
+	<%= f.input :power %>
+	<%= f.input :fractionlatent, :label => "Fraction Latent" %>
+	<%= f.input :fractionradiant, :label => "Fraction Radiant" %>
+	<%= f.input :fractionlost, :label => "Fraction Lost" %>
+	<%= f.input :endusesubcategory, :label => "End Use Subcategory", :input_html => {:rows =>1, :cols => 30} %>
+ <% end %>
+ <%= f.inputs "Datasheet", :id => "datasheet" do %>
+	<%= f.input :datasheet, :as => :file %>
+ <% end %>
+<%= f.actions do %>
+ <%= f.action :submit %>
+<% end %>
+<% end %>
+     
