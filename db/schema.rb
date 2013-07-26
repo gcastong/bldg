@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130723160006) do
+ActiveRecord::Schema.define(version: 20130726192049) do
+
+  create_table "ashrae62s", force: true do |t|
+    t.string   "version"
+    t.boolean  "ventilation"
+    t.boolean  "exhaust"
+    t.string   "categorie"
+    t.string   "vocation"
+    t.decimal  "rp_ip"
+    t.decimal  "ra_ip"
+    t.decimal  "rp_si"
+    t.decimal  "ra_si"
+    t.decimal  "OccupantDensity"
+    t.string   "AirClass"
+    t.decimal  "exhaustrate_per_unit_ip"
+    t.decimal  "exhaustrate_per_unit_si"
+    t.decimal  "exhaustrate_per_area_si"
+    t.decimal  "exhaustrate_per_area_ip"
+    t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "equipment", force: true do |t|
     t.string   "tag"
@@ -26,36 +47,6 @@ ActiveRecord::Schema.define(version: 20130723160006) do
     t.decimal  "fractionradiant"
     t.decimal  "fractionlost"
     t.text     "endusesubcategory"
-    t.boolean  "domesticcoldwater"
-    t.boolean  "domestichotwater"
-    t.boolean  "hotwater"
-    t.boolean  "chilledwater"
-    t.boolean  "drainage"
-    t.boolean  "purifiedwatertype1"
-    t.boolean  "purifiedWatertype2"
-    t.boolean  "purifiedwatertype3"
-    t.boolean  "naturalgas"
-    t.boolean  "propane"
-    t.boolean  "compressedair"
-    t.boolean  "nitrogen"
-    t.binary   "datasheet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "equipments", force: true do |t|
-    t.string   "tag"
-    t.string   "name"
-    t.text     "description"
-    t.text     "note"
-    t.decimal  "length"
-    t.decimal  "width"
-    t.decimal  "height"
-    t.decimal  "power"
-    t.decimal  "fractionlatent"
-    t.decimal  "fractionradiant"
-    t.decimal  "fractionlost"
-    t.text     "endusesubcategory",  default: "General"
     t.boolean  "domesticcoldwater"
     t.boolean  "domestichotwater"
     t.boolean  "hotwater"
