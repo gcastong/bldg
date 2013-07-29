@@ -5,12 +5,14 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
+    
   end
 
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-    
+    @Ashrae62_2001 = Ashrae62.find(@room.ASHRAE2001)
+    @Ashrae62_2007 = Ashrae62.find(@room.ASHRAE2007)
   end
 
   # GET /rooms/new
@@ -52,6 +54,20 @@ class RoomsController < ApplicationController
     end
   end
 
+  def calc_ashrae62
+	@room = Room.find(params[:id])
+  	@Ra = Ashrae62.find(@room.ASHRAE2001).ra_ip
+	@Az = @room.area
+  	@Rp = Ashrae62.find(@room.ASHRAE2001).rp_ip
+	if @room.Occupancy?
+		@Pz = @room.Occupancy
+	else
+		@Pz = (Ashrae62.find(@room.ASHRAE2001).OccupantDensity/100) * @room.area
+	end
+	@Vbz = @Ra*@Az + @Rp*@Pz
+  end
+  helper_method :calc_ashrae62	
+
   # DELETE /rooms/1
   # DELETE /rooms/1.json
   def destroy
@@ -71,6 +87,21 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:spacename, :spacenumber, :area)
+      params.require(:room).permit(:spacename, 
+	:spacenumber,
+	:area,
+	:ASHRAE2001,
+	:ASHRAE2007,
+	:ASHRAE2001Exhaust,
+	:ASHRAE2007Exhaust,
+	:Occupancy,
+	:ThermalZone,
+	:Height,
+	:SummerTemperatureSetpoint,
+	:WinterTemperatureSetpoint,
+	:SummerHumiditySetpoint,
+	:WinterHumiditySetpoint,
+	:RoomPressurization,
+	:AirDistributionEffectiveness)
     end
 end

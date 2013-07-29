@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130726192049) do
+ActiveRecord::Schema.define(version: 20130729195041) do
 
   create_table "ashrae62s", force: true do |t|
     t.string   "version"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20130726192049) do
     t.decimal  "ra_ip"
     t.decimal  "rp_si"
     t.decimal  "ra_si"
-    t.decimal  "OccupantDensity"
+    t.float    "OccupantDensity"
     t.string   "AirClass"
     t.decimal  "exhaustrate_per_unit_ip"
     t.decimal  "exhaustrate_per_unit_si"
@@ -80,6 +80,22 @@ ActiveRecord::Schema.define(version: 20130726192049) do
     t.integer  "area"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ASHRAE2001"
+    t.string   "ASHRAE2007"
+    t.string   "ASHRAE2001Exhaust"
+    t.string   "ASHRAE2007Exhaust"
+    t.integer  "Occupancy"
+    t.string   "ThermalZone"
+    t.decimal  "Height"
+    t.decimal  "SummerTemperatureSetpoint"
+    t.decimal  "WinterTemperatureSetpoint"
+    t.decimal  "SummerHumiditySetpoint"
+    t.decimal  "WinterHumiditySetpoint"
+    t.string   "RoomPressurization"
+    t.decimal  "AirDistributionEffectiveness", default: 1.0
   end
+
+  add_index "rooms", ["ASHRAE2001"], name: "index_rooms_on_ASHRAE2001"
+  add_index "rooms", ["ASHRAE2007"], name: "index_rooms_on_ASHRAE2007"
 
 end

@@ -1,12 +1,13 @@
+<% calc_ashrae62 %>
+
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Spacename:</strong>
+<h1>
+ <strong>Space Name:</strong>
   <%= @room.spacename %>
-</p>
-
+</h1>
+<h2>General informations</h2>
 <p>
-  <strong>Spacenumber:</strong>
+  <strong>Space Number:</strong>
   <%= @room.spacenumber %>
 </p>
 
@@ -14,6 +15,89 @@
   <strong>Area:</strong>
   <%= @room.area %>
 </p>
+
+<p>
+  <strong>Custom Room Occupancy: </strong>
+  <%= @room.Occupancy %>
+</p>
+<p>
+  <strong>Default Room Occupancy: </strong>
+  <%= number_with_precision(@DefaultRoomOccupancy = (@Ashrae62_2001.OccupantDensity/100)*@room.area, precision: 0)  %>
+
+</p>
+
+  <h2>ASHRAE 62.1-2001 - Outdoor Air flow rate calculation</h2>
+
+	<table>
+	<tr>
+	 <th>Occupancy Category</th>
+	 <th>People Outdoor Air Rate (Rp) - cfm/person</th>
+	 <th>Area Outdoor Air Rate (Ra) - cfm/ft2</th>
+	 <th>Air Distribution Effectiveness (Ez)</th>
+	</tr>
+	<tr>
+	 <td><%= @Ashrae62_2001.vocation %></td>
+	 <td><%= @Ashrae62_2001.rp_ip %></td>
+	 <td><%= @Ashrae62_2001.ra_ip %></td>
+	 <td><%= @room.AirDistributionEffectiveness %></td>
+	</tr>
+  	</table>
+
+	<% if @room.Occupancy.blank? %>
+	<p>
+	<strong>Default occupation density used</strong>
+	</p>  	
+	<% end %>
+
+	<p>
+	<strong>Required Outdoor Air Rate: </strong>	
+		<% @RaAz = @room.area * @Ashrae62_2001.ra_ip  %>
+		<% if @room.Occupancy.blank? %>
+			<% @Pz = @DefaultRoomOccupancy %>
+		<% else %>	  	
+			<% @Pz = @room.Occupancy %>
+		<% end %>
+		<% @RpPz = @Pz * @Ashrae62_2001.rp_ip %>
+		<% @Vbz = @RaAz + @RpPz %>
+	<%= number_with_precision(@Voz2001 = @Vbz/@room.AirDistributionEffectiveness, precision: 0) %> cfm 
+	</p>
+
+
+
+
+  <h2>ASHRAE 62.1-2007 - Outdoor Air flow rate calculation</h2>
+
+	<table>
+	<tr>
+	 <th>Occupancy Category</th>
+	 <th>People Outdoor Air Rate (Rp) - cfm/person</th>
+	 <th>Area Outdoor Air Rate (Ra) - cfm/ft2</th>
+	 <th>Air Distribution Effectiveness (Ez)</th>
+	</tr>
+	<tr>
+	 <td><%= @Ashrae62_2007.vocation %></td>
+	 <td><%= @Ashrae62_2007.rp_ip %></td>
+	 <td><%= @Ashrae62_2007.ra_ip %></td>
+	 <td><%= @room.AirDistributionEffectiveness %></td>
+	</tr>
+  	</table>
+
+	<% if @room.Occupancy.blank? %>
+	<p>
+	<strong>Default occupation density used</strong>
+	</p>  	
+	<% end %>
+
+	<p>
+	<strong>Required Outdoor Air Rate: </strong>	
+	
+
+
+
+	
+<h2>Outdoor air critical case</h2>
+<p>
+
 
 <h2>Equipments</h2>
 <table>
