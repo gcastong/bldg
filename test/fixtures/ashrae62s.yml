@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  version: MyString
+  ventilation: false
+  exhaust: false
+  categorie: MyString
+  vocation: MyString
+  rp_ip: 9.99
+  ra_ip: 9.99
+  rp_si: 9.99
+  ra_si: 9.99
+  OccupantDensity: 9.99
+  AirClass: MyString
+  exhaustrate_per_unit_ip: 9.99
+  exhaustrate_per_unit_si: 9.99
+  exhaustrate_per_area_si: 9.99
+  exhaustrate_per_area_ip: 9.99
+  note: MyString
+
+two:
+  version: MyString
+  ventilation: false
+  exhaust: false
+  categorie: MyString
+  vocation: MyString
+  rp_ip: 9.99
+  ra_ip: 9.99
+  rp_si: 9.99
+  ra_si: 9.99
+  OccupantDensity: 9.99
+  AirClass: MyString
+  exhaustrate_per_unit_ip: 9.99
+  exhaustrate_per_unit_si: 9.99
+  exhaustrate_per_area_si: 9.99
+  exhaustrate_per_area_ip: 9.99
+  note: MyString

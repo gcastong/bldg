@@ -1,0 +1,30 @@
+<h1>ASHRAE 62.1 Standards</h1>
+
+<h2>ASHRAE 62.1-2001</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Vocation</th>
+      <th>People Outdoor Air Rate RP (cfm/person)</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @A62.each do |a| %>
+      <tr>
+        <td><%= a.vocation %></td>
+        <td><%= a.rp_ip %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipment', new_equipment_path %>
+<br>
+
+<%= link_to 'Home', welcome_index_path %>
