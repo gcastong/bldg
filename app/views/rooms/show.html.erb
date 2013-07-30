@@ -90,27 +90,9 @@
 </p>
 
 
-
 <h2>Equipments</h2>
-<table>
-<tr>
- <th>Tag</th>
- <th>Name</td>
- <th>Quantity</th>
-</tr>
+<%= render 'room_equipments/show' %>
 
-
-<% @room.room_equipments.each do |eq| %>
-<% @equipment = Equipment.find(eq.tag) %>
-<tr> 
- <td><%= @equipment.tag %></td>
- <td><%= @equipment.name %></td>
- <td><%= eq.quantity %></td>
-</tr>
-
-<% end %>
-
-</table>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>

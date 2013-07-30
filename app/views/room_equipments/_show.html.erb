@@ -1,0 +1,20 @@
+<table>
+<tr>
+ <th>Tag</th>
+ <th>Name</td>
+ <th>Quantity</th>
+ <th></th>
+</tr>
+
+
+<% @room.room_equipments.each do |eq| %>
+<% @equipment = Equipment.find(eq.tag) %>
+<tr> 
+ <td><%= @equipment.tag %></td>
+ <td><%= @equipment.name %></td>
+ <td><%= eq.quantity %></td>
+ <td><%= link_to 'Edit quantity', edit_room_room_equipment_path(@room,eq) %>
+</tr>
+<% end %>
+</table>
+

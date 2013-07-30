@@ -20,6 +20,7 @@
 		<%= f.input :spacenumber, :label => "Room Number" %>
 		<%= f.input :area, :label => "Area (m2)" %>
 		<%= f.input :Height, :label => "Height (m)" %>
+		<%= f.input :Occupancy, :label => "Number of Occupants" %>
  	<% end %>
 	<%= f.inputs "Outdoor air ventilation rate", :id => "general" do %>
 		<%= f.input :ASHRAE2001, :as => :select, :collection => @ASHRAE2001Collection, :label => "ASHRAE 2001 Occupancy category" %>
@@ -37,6 +38,10 @@
  	<% end %>
  	<%= f.inputs "Energy Model", :id => "general" do %>
 		<%= f.input :ThermalZone, :label => "Thermal Zone" %>
+ 	<% end %>
+ 	<%= f.semantic_fields_for :room_equipments do |roomeq| %>
+		<%= roomeq.input :tag %>
+		<%= roomeq.input :quantity %>
  	<% end %>
  	
  	

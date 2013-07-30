@@ -1,0 +1,9 @@
+<% @EquipmentCollection = Equipment.order("tag ASC").map{ |s| ["#{s.tag}"+" - "+"#{s.name}", s.id]} %>
+
+<%= semantic_form_for [@room, @room_equipments] do |f| %>
+<%= f.inputs do %>
+	<%= f.input :tag, :as => :select, :collection => @EquipmentCollection %>
+	<%= f.input :quantity %>
+<% end %>
+<%= f.actions %>
+<% end %> 
