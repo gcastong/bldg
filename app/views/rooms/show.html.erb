@@ -1,5 +1,3 @@
-<% calc_ashrae62 %>
-
 <p id="notice"><%= notice %></p>
 <h1>
  <strong>Space Name:</strong>
@@ -18,12 +16,15 @@
 
 <p>
   <strong>Custom Room Occupancy: </strong>
-  <%= @room.Occupancy %>
+  <% if @room.Occupancy? %>
+	<%= @room.Occupancy %>
+  <% else %>
+	Undefined
+  <% end %>
 </p>
 <p>
   <strong>Default Room Occupancy: </strong>
   <%= number_with_precision(@DefaultRoomOccupancy = (@Ashrae62_2001.OccupantDensity/100)*@room.area, precision: 0)  %>
-
 </p>
 
   <h2>ASHRAE 62.1-2001 - Outdoor Air flow rate calculation</h2>
@@ -34,12 +35,14 @@
 	 <th>People Outdoor Air Rate (Rp) - cfm/person</th>
 	 <th>Area Outdoor Air Rate (Ra) - cfm/ft2</th>
 	 <th>Air Distribution Effectiveness (Ez)</th>
+	 <th>Outdoor Air Rate(Voz)</th>
 	</tr>
 	<tr>
 	 <td><%= @Ashrae62_2001.vocation %></td>
 	 <td><%= @Ashrae62_2001.rp_ip %></td>
 	 <td><%= @Ashrae62_2001.ra_ip %></td>
 	 <td><%= @room.AirDistributionEffectiveness %></td>
+	 <td><%= calc_ashrae62(@room.id,@room.ASHRAE2001) %></td>
 	</tr>
   	</table>
 
@@ -48,19 +51,6 @@
 	<strong>Default occupation density used</strong>
 	</p>  	
 	<% end %>
-
-	<p>
-	<strong>Required Outdoor Air Rate: </strong>	
-		<% @RaAz = @room.area * @Ashrae62_2001.ra_ip  %>
-		<% if @room.Occupancy.blank? %>
-			<% @Pz = @DefaultRoomOccupancy %>
-		<% else %>	  	
-			<% @Pz = @room.Occupancy %>
-		<% end %>
-		<% @RpPz = @Pz * @Ashrae62_2001.rp_ip %>
-		<% @Vbz = @RaAz + @RpPz %>
-	<%= number_with_precision(@Voz2001 = @Vbz/@room.AirDistributionEffectiveness, precision: 0) %> cfm 
-	</p>
 
 
 
@@ -73,12 +63,14 @@
 	 <th>People Outdoor Air Rate (Rp) - cfm/person</th>
 	 <th>Area Outdoor Air Rate (Ra) - cfm/ft2</th>
 	 <th>Air Distribution Effectiveness (Ez)</th>
+	 <th>Outdoor Air Rate(Voz)</th>
 	</tr>
 	<tr>
 	 <td><%= @Ashrae62_2007.vocation %></td>
 	 <td><%= @Ashrae62_2007.rp_ip %></td>
 	 <td><%= @Ashrae62_2007.ra_ip %></td>
 	 <td><%= @room.AirDistributionEffectiveness %></td>
+	 <td><%= calc_ashrae62(@room.id,@room.ASHRAE2007) %></td>
 	</tr>
   	</table>
 
@@ -88,15 +80,15 @@
 	</p>  	
 	<% end %>
 
-	<p>
-	<strong>Required Outdoor Air Rate: </strong>	
-	
 
 
 
 	
 <h2>Outdoor air critical case</h2>
 <p>
+<%= [calc_ashrae62(@room.id,@room.ASHRAE2001),calc_ashrae62(@room.id,@room.ASHRAE2007)].max %> cfm.
+</p>
+
 
 
 <h2>Equipments</h2>

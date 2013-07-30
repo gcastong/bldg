@@ -19,11 +19,28 @@
 		<%= f.input :spacename, :label => "Room Name" %>
 		<%= f.input :spacenumber, :label => "Room Number" %>
 		<%= f.input :area, :label => "Area (m2)" %>
+		<%= f.input :Height, :label => "Height (m)" %>
  	<% end %>
 	<%= f.inputs "Outdoor air ventilation rate", :id => "general" do %>
 		<%= f.input :ASHRAE2001, :as => :select, :collection => @ASHRAE2001Collection, :label => "ASHRAE 2001 Occupancy category" %>
 		<%= f.input :ASHRAE2007, :as => :select, :collection => @ASHRAE2007Collection, :label => "ASHRAE 2007 Occupancy category" %>
+		<%= f.input :AirDistributionEffectiveness, :label => "Air Distribution Effectiveness (Ez)" %>
  	<% end %>
+ 	<%= f.inputs "Temperature and humidity setpoints", :id => "general" do %>
+		<%= f.input :SummerTemperatureSetpoint, :label => "Summer Temperature Setpoint (°C)" %>
+		<%= f.input :WinterTemperatureSetpoint, :label => "Winter Temperature Setpoint (°C)" %>
+ 		<%= f.input :SummerHumiditySetpoint, :label => "Summer Humidity Setpoint (%)" %>
+ 		<%= f.input :WinterHumiditySetpoint, :label => "Winter Humidity Setpoint (%)" %>
+ 	<% end %>
+ 	<%= f.inputs "Ventilation", :id => "general" do %>
+		<%= f.input :RoomPressurization, :as => :select, :collection => ["Neutral","Positive","Negative"], :label => "Room Pressurization" %>
+ 	<% end %>
+ 	<%= f.inputs "Energy Model", :id => "general" do %>
+		<%= f.input :ThermalZone, :label => "Thermal Zone" %>
+ 	<% end %>
+ 	
+ 	
+ 	
 	<%= f.actions do %>
  		<%= f.action :submit %>
 	<% end %>

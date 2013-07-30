@@ -5,7 +5,6 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
-    
   end
 
   # GET /rooms/1
@@ -28,7 +27,6 @@ class RoomsController < ApplicationController
   # POST /rooms.json
   def create
     @room = Room.new(room_params)
-
     respond_to do |format|
       if @room.save
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
@@ -54,20 +52,23 @@ class RoomsController < ApplicationController
     end
   end
 
-  def calc_ashrae62
-	@room = Room.find(params[:id])
-  	@Ra = Ashrae62.find(@room.ASHRAE2001).ra_ip
+  def calc_ashrae62(room_id,ashrae_id)
+	@room = Room.find(room_id)
+  	@Ra = Ashrae62.find(ashrae_id).ra_ip
 	@Az = @room.area
-  	@Rp = Ashrae62.find(@room.ASHRAE2001).rp_ip
+  	@Rp = Ashrae62.find(ashrae_id).rp_ip
 	if @room.Occupancy?
 		@Pz = @room.Occupancy
 	else
-		@Pz = (Ashrae62.find(@room.ASHRAE2001).OccupantDensity/100) * @room.area
+		@Pz = (Ashrae62.find(ashrae_id).OccupantDensity/100) * @room.area
 	end
 	@Vbz = @Ra*@Az + @Rp*@Pz
+	@Voz = @Vbz/@room.AirDistributionEffectiveness
+    return @Voz
   end
   helper_method :calc_ashrae62	
-
+  
+  
   # DELETE /rooms/1
   # DELETE /rooms/1.json
   def destroy
@@ -87,7 +88,7 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:spacename, 
+     params.require(:room).permit(:spacename, 
 	:spacenumber,
 	:area,
 	:ASHRAE2001,
@@ -102,6 +103,8 @@ class RoomsController < ApplicationController
 	:SummerHumiditySetpoint,
 	:WinterHumiditySetpoint,
 	:RoomPressurization,
-	:AirDistributionEffectiveness)
+	:AirDistributionEffectiveness,
+	:Voz2001,
+	:Voz2007)
     end
 end
