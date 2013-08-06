@@ -1,5 +1,6 @@
 <% @ASHRAE2001Collection = Ashrae62.where(version: 2001).order("vocation ASC").map{ |s| ["#{s.vocation}", s.id]} %>
 <% @ASHRAE2007Collection = Ashrae62.where(version: 2007).order("vocation ASC").map{ |s| ["#{s.vocation}", s.id]} %>
+<% @EquipmentCollection = Equipment.order("tag ASC").map{ |s| ["#{s.tag}"+" - "+"#{s.name}", s.id]} %>
  
 
   <% if @room.errors.any? %>
@@ -39,16 +40,11 @@
  	<%= f.inputs "Energy Model", :id => "general" do %>
 		<%= f.input :ThermalZone, :label => "Thermal Zone" %>
  	<% end %>
- 	<%= f.semantic_fields_for :room_equipments do |roomeq| %>
-		<%= roomeq.input :tag %>
-		<%= roomeq.input :quantity %>
- 	<% end %>
- 	
- 	
- 	
-	<%= f.actions do %>
- 		<%= f.action :submit %>
-	<% end %>
-<% end %>
+	 	<%= f.semantic_fields_for :room_equipments do |roomeq| %>
+			<%= roomeq.input :tag, :as => :select, :collection => @EquipmentCollection %>
+			<%= roomeq.input :quantity %>
+	 	<% end %>
+	<%= f.actions %>
+ <% end %>
 
 

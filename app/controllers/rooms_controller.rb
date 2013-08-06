@@ -26,7 +26,7 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(room_params)
+    @room = Room.new(params[:room])
     respond_to do |format|
       if @room.save
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
@@ -42,7 +42,7 @@ class RoomsController < ApplicationController
   # PATCH/PUT /rooms/1.json
   def update
     respond_to do |format|
-      if @room.update(room_params)
+      if @room.update(params[room_params])
         format.html { redirect_to @room, notice: 'Room was successfully updated.' }
         format.json { head :no_content }
       else
@@ -88,7 +88,8 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-     params.require(:room).permit(:spacename, 
+     params.require(:room).permit(
+	:spacename, 
 	:spacenumber,
 	:area,
 	:ASHRAE2001,
@@ -105,6 +106,7 @@ class RoomsController < ApplicationController
 	:RoomPressurization,
 	:AirDistributionEffectiveness,
 	:Voz2001,
-	:Voz2007)
+	:Voz2007,
+	room_equipments_attributes: [:quantity, :tag, :id])
     end
 end
