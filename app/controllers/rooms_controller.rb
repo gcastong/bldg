@@ -17,16 +17,18 @@ class RoomsController < ApplicationController
   # GET /rooms/new
   def new
     @room = Room.new
+    @room_equipment = @room.room_equipments.build
   end
 
   # GET /rooms/1/edit
   def edit
+    @room_equipment = @room.room_equipments.build
   end
 
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(params[:room])
+    @room = Room.new(room_params)
     respond_to do |format|
       if @room.save
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
@@ -107,6 +109,7 @@ class RoomsController < ApplicationController
 	:AirDistributionEffectiveness,
 	:Voz2001,
 	:Voz2007,
-	room_equipments_attributes: [:quantity, :tag, :id])
+#	room_equipments_attributes: [:quantity, :tag, :id]
+	)
     end
 end

@@ -37,13 +37,18 @@
  	<%= f.inputs "Ventilation", :id => "general" do %>
 		<%= f.input :RoomPressurization, :as => :select, :collection => ["Neutral","Positive","Negative"], :label => "Room Pressurization" %>
  	<% end %>
- 	<%= f.inputs "Energy Model", :id => "general" do %>
+ 	
+	<%= f.inputs "Energy Model", :id => "general" do %>
 		<%= f.input :ThermalZone, :label => "Thermal Zone" %>
  	<% end %>
-	 	<%= f.semantic_fields_for :room_equipments do |roomeq| %>
+
+	<%= f.inputs "Room Equipments", :id => "general" do %>
+
+ 	<%= f.semantic_fields_for :room_equipments do |roomeq| %>
 			<%= roomeq.input :tag, :as => :select, :collection => @EquipmentCollection %>
 			<%= roomeq.input :quantity %>
 	 	<% end %>
+	<% end %>	
 	<%= f.actions %>
  <% end %>
 
