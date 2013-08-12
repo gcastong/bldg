@@ -3,7 +3,7 @@ Bldg::Application.routes.draw do
   get "equipment/show"
   get "welcome/index"
   resources :equipment
-
+  resources :ashrae62	
   root 'welcome#index'
   
   resources :rooms do 

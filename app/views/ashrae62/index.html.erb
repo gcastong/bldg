@@ -1,0 +1,55 @@
+<h1>ASHRAE 62.1 Standards</h1>
+
+<h2>ASHRAE 62.1-2001</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Vocation</th>
+      <th>People Outdoor Air Rate RP (cfm/person)</th>
+      <th>People Outdoor Air Rate RA (cfm/ft2)</th>
+      <th>Air Class</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ASHRAE62.where(version: "2001").each do |a| %>
+      <tr>
+        <td><%= a.vocation %></td>
+        <td><%= a.rp_ip %></td>
+	<td><%= a.ra_ip %></td>
+	<td><%= a.AirClass %></td>
+	<td><%= a.note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<h2>ASHRAE 62.1-2007</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Vocation</th>
+      <th>People Outdoor Air Rate RP (cfm/person)</th>
+      <th>People Outdoor Air Rate RA (cfm/ft2)</th>
+      <th>Air Class</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ASHRAE62.where(version: "2007").each do |a| %>
+      <tr>
+        <td><%= a.vocation %></td>
+        <td><%= a.rp_ip %></td>
+	<td><%= a.ra_ip %></td>
+	<td><%= a.AirClass %></td>
+	<td><%= a.note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'Home', welcome_index_path %>

@@ -2,21 +2,11 @@
 
 <%= render 'form' %>
 
-<h2>Add an equipment</h2>
-<%= form_for([@room, @room.room_equipments.build]) do |f| %>
- <p>
-  <%= f.label :tag %>
-  <%= f.collection_select(:tag, Equipment.all, :id, :tag, :prompt =>'Please select') %>
+<h2>Equipments</h2>
 
- </p>
- <p>
-  <%= f.label :quantity %>
-  <%= f.text_field :quantity %>
- </p>
- <p>
-  <%= f.submit %>
- </p>
-<% end %>
+<%= link_to 'Add equipment', new_room_room_equipment_path(@room) %> 
 
-<%= link_to 'Show', @room %> |
+<p>
+<%= link_to 'Show', @room %> 
 <%= link_to 'Back', rooms_path %>
+</p>

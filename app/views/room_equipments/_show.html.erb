@@ -1,0 +1,19 @@
+<table>
+<tr>
+ <th>Tag</th>
+ <th>Name</th>
+ <th>Quantity</th>
+ <th></th>
+</tr>
+
+
+<% @room.room_equipments.each do |eq| %>
+<% @equipment = Equipment.find(eq.tag) %>
+<tr> 
+ <td><%= @equipment.tag %></td>
+ <td><%= @equipment.name %></td>
+ <td><%= eq.quantity %></td>
+</tr>
+<% end %>
+</table>
+

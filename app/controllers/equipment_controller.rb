@@ -4,6 +4,7 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
+    @ReadOnlyField = false
     @equipment = Equipment.all
   end
 
@@ -15,6 +16,7 @@ class EquipmentController < ApplicationController
 
   # GET /equipment/new
   def new
+    @ReadOnlyField = false
     @equipment = Equipment.new
   end
 
@@ -26,6 +28,7 @@ class EquipmentController < ApplicationController
   # POST /equipment
   # POST /equipment.json
   def create
+
     @equipment = Equipment.new(equipment_params)
 
     respond_to do |format|

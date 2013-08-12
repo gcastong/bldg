@@ -1,4 +1,8 @@
-<%= form_for(@room) do |f| %>
+<% @ASHRAE2001Collection = Ashrae62.where(version: 2001).order("vocation ASC").map{ |s| ["#{s.vocation}", s.id]} %>
+<% @ASHRAE2007Collection = Ashrae62.where(version: 2007).order("vocation ASC").map{ |s| ["#{s.vocation}", s.id]} %>
+<% @EquipmentCollection = Equipment.order("tag ASC").map{ |s| ["#{s.tag}"+" - "+"#{s.name}", s.id]} %>
+ 
+
   <% if @room.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h2>
@@ -11,19 +15,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :spacename %><br>
-    <%= f.text_field :spacename %>
-  </div>
-  <div class="field">
-    <%= f.label :spacenumber %><br>
-    <%= f.text_field :spacenumber %>
-  </div>
-  <div class="field">
-    <%= f.label :area %><br>
-    <%= f.number_field :area %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= semantic_form_for(@room) do |f| %>
+	<%= f.inputs "General informations", :id => "general" do %>
+		<%= f.input :spacename, :label => "Room Name" %>
+		<%= f.input :spacenumber, :label => "Room Number" %>
+		<%= f.input :area, :label => "Area (m2)" %>
+		<%= f.input :Height, :label => "Height (m)" %>
+		<%= f.input :Occupancy, :label => "Number of Occupants" %>
+ 	<% end %>
+	<%= f.inputs "Outdoor air ventilation rate", :id => "general" do %>
+		<%= f.input :ASHRAE2001, :as => :select, :collection => @ASHRAE2001Collection, :label => "ASHRAE 2001 Occupancy category" %>
+		<%= f.input :ASHRAE2007, :as => :select, :collection => @ASHRAE2007Collection, :label => "ASHRAE 2007 Occupancy category" %>
+		<%= f.input :AirDistributionEffectiveness, :label => "Air Distribution Effectiveness (Ez)" %>
+ 	<% end %>
+ 	<%= f.inputs "Temperature and humidity setpoints", :id => "general" do %>
+		<%= f.input :SummerTemperatureSetpoint, :label => "Summer Temperature Setpoint (°C)" %>
+		<%= f.input :WinterTemperatureSetpoint, :label => "Winter Temperature Setpoint (°C)" %>
+ 		<%= f.input :SummerHumiditySetpoint, :label => "Summer Humidity Setpoint (%)" %>
+ 		<%= f.input :WinterHumiditySetpoint, :label => "Winter Humidity Setpoint (%)" %>
+ 	<% end %>
+ 	<%= f.inputs "Ventilation", :id => "general" do %>
+		<%= f.input :RoomPressurization, :as => :select, :collection => ["Neutral","Positive","Negative"], :label => "Room Pressurization" %>
+ 	<% end %>
+ 	
+	<%= f.inputs "Energy Model", :id => "general" do %>
+		<%= f.input :ThermalZone, :label => "Thermal Zone" %>
+ 	<% end %>
+
+	<%= f.inputs "Room Equipments", :id => "general" do %>
+
+ 	<%= f.semantic_fields_for :room_equipments do |roomeq| %>
+			<%= roomeq.input :tag, :as => :select, :collection => @EquipmentCollection %>
+			<%= roomeq.input :quantity %>
+	 	<% end %>
+	<% end %>	
+	<%= f.actions %>
+ <% end %>
+
+

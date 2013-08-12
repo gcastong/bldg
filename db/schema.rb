@@ -11,8 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130723160006) do
+ActiveRecord::Schema.define(version: 20130729230654) do
 
+  create_table "ashrae62s", force: true do |t|
+    t.string   "version"
+    t.boolean  "ventilation"
+    t.boolean  "exhaust"
+    t.string   "categorie"
+    t.string   "vocation"
+    t.decimal  "rp_ip"
+    t.decimal  "ra_ip"
+    t.decimal  "rp_si"
+    t.decimal  "ra_si"
+    t.float    "OccupantDensity"
+    t.string   "AirClass"
+    t.decimal  "exhaustrate_per_unit_ip"
+    t.decimal  "exhaustrate_per_unit_si"
+    t.decimal  "exhaustrate_per_area_si"
+    t.decimal  "exhaustrate_per_area_ip"
+    t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+<<<<<<< HEAD
+=======
   create_table "equipment", force: true do |t|
     t.string   "tag"
     t.string   "name"
@@ -43,6 +66,7 @@ ActiveRecord::Schema.define(version: 20130723160006) do
     t.datetime "updated_at"
   end
 
+>>>>>>> AddingASHRAE62-1Module
   create_table "room_equipments", force: true do |t|
     t.string   "tag"
     t.integer  "room_id"
@@ -59,6 +83,24 @@ ActiveRecord::Schema.define(version: 20130723160006) do
     t.integer  "area"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ASHRAE2001"
+    t.string   "ASHRAE2007"
+    t.string   "ASHRAE2001Exhaust"
+    t.string   "ASHRAE2007Exhaust"
+    t.integer  "Occupancy"
+    t.string   "ThermalZone"
+    t.decimal  "Height"
+    t.decimal  "SummerTemperatureSetpoint"
+    t.decimal  "WinterTemperatureSetpoint"
+    t.decimal  "SummerHumiditySetpoint"
+    t.decimal  "WinterHumiditySetpoint"
+    t.string   "RoomPressurization"
+    t.decimal  "AirDistributionEffectiveness", default: 1.0
+    t.decimal  "Voz2001"
+    t.decimal  "Voz2007"
   end
+
+  add_index "rooms", ["ASHRAE2001"], name: "index_rooms_on_ASHRAE2001"
+  add_index "rooms", ["ASHRAE2007"], name: "index_rooms_on_ASHRAE2007"
 
 end

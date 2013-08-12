@@ -48,11 +48,11 @@
 <%= f.inputs "Datasheet", :id => "datasheet" do %>
 	
 	<%= f.input :datasheet, :as => :file %>
- <% end %>
-<% if @ReadOnlyField = false %>
+<% end %>
+
 	<%= f.actions do %>
  	<%= f.action :submit %>
 	<% end %>
-<% end %>
+
 <% end %>
      
