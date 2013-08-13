@@ -17,12 +17,12 @@ class RoomsController < ApplicationController
   # GET /rooms/new
   def new
     @room = Room.new
-    @room_equipment = @room.room_equipments.build
+#    @room_equipment = @room.room_equipments.new
   end
 
   # GET /rooms/1/edit
   def edit
-    @room_equipment = @room.room_equipments.build
+#    @room_equipment = @room.room_equipments.new
   end
 
   # POST /rooms
@@ -44,7 +44,7 @@ class RoomsController < ApplicationController
   # PATCH/PUT /rooms/1.json
   def update
     respond_to do |format|
-      if @room.update(params[room_params])
+      if @room.update(room_params)
         format.html { redirect_to @room, notice: 'Room was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,7 +57,7 @@ class RoomsController < ApplicationController
   def calc_ashrae62(room_id,ashrae_id)
 	@room = Room.find(room_id)
   	@Ra = Ashrae62.find(ashrae_id).ra_ip
-	@Az = @room.area
+	@Az = @room.area*10.76391
   	@Rp = Ashrae62.find(ashrae_id).rp_ip
 	if @room.Occupancy?
 		@Pz = @room.Occupancy
@@ -109,7 +109,7 @@ class RoomsController < ApplicationController
 	:AirDistributionEffectiveness,
 	:Voz2001,
 	:Voz2007,
-#	room_equipments_attributes: [:quantity, :tag, :id]
+	room_equipments_attributes: [:quantity, :tag, :id, :room_id, '_destroy' ]
 	)
     end
 end

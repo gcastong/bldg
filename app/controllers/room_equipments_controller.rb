@@ -16,15 +16,24 @@ class RoomEquipmentsController < ApplicationController
 # POST /rooms/id/room_equipments
  def create 
   @room = Room.find(params[:room_id])
-  @room_equipment = @room.room_equipments.create(params[:room_equipment].permit(:tag, :quantity))
-
+  @room_equipment = @room.room_equipments.new(params[:room_equipment].permit(:tag, :quantity))
   redirect_to room_path(@room)
  end
 
  def edit
  @room = Room.find(params[:room_id]) 
  @room_equipment = @room.room_equipments.find(params[:id]) 
+ #@room.room_equipments.build
  end
 
+ def destroy 
+  #@room = Room.find(params[:room_id])
+  #@room_equipment = @room.room_equipments.find(params[:id])
+  #@room_equipment.destroy
+  #respond_to do |format|
+  #    format.html { redirect_to rooms_url }
+  #    format.json { head :no_content }
+  #end
+ end
 
 end

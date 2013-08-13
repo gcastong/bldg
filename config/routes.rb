@@ -1,5 +1,7 @@
 Bldg::Application.routes.draw do
   
+  resources :schedules
+
   get "equipment/show"
   get "welcome/index"
   resources :equipment

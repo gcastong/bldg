@@ -4,6 +4,18 @@ source 'https://rubygems.org'
 #Formtastic
 gem 'formtastic'
 
+#Nested form
+gem 'nested_form'
+
+#jqPlot
+gem 'jqplot-rails'
+
+#Cocoon
+#gem 'cocoon'
+
+#Awesome nested fields 
+#gem 'awesome_nested_fields'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -34,6 +46,11 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+
+group :development do 
+  gem 'rails-erd'
 end
 
 # Use ActiveModel has_secure_password

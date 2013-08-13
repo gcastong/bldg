@@ -15,7 +15,7 @@
     </div>
   <% end %>
 
-<%= semantic_form_for(@room) do |f| %>
+<%= semantic_nested_form_for(@room) do |f| %>
 	<%= f.inputs "General informations", :id => "general" do %>
 		<%= f.input :spacename, :label => "Room Name" %>
 		<%= f.input :spacenumber, :label => "Room Number" %>
@@ -26,7 +26,7 @@
 	<%= f.inputs "Outdoor air ventilation rate", :id => "general" do %>
 		<%= f.input :ASHRAE2001, :as => :select, :collection => @ASHRAE2001Collection, :label => "ASHRAE 2001 Occupancy category" %>
 		<%= f.input :ASHRAE2007, :as => :select, :collection => @ASHRAE2007Collection, :label => "ASHRAE 2007 Occupancy category" %>
-		<%= f.input :AirDistributionEffectiveness, :label => "Air Distribution Effectiveness (Ez)" %>
+		<%= f.input :AirDistributionEffectiveness, :label => "Air Distribution Effectiveness (Ez)", :as => :select, :collection => ["0.5","0.7","0.8","1.0","1.2"] %>
  	<% end %>
  	<%= f.inputs "Temperature and humidity setpoints", :id => "general" do %>
 		<%= f.input :SummerTemperatureSetpoint, :label => "Summer Temperature Setpoint (°C)" %>
@@ -43,12 +43,13 @@
  	<% end %>
 
 	<%= f.inputs "Room Equipments", :id => "general" do %>
-
- 	<%= f.semantic_fields_for :room_equipments do |roomeq| %>
-			<%= roomeq.input :tag, :as => :select, :collection => @EquipmentCollection %>
-			<%= roomeq.input :quantity %>
-	 	<% end %>
-	<% end %>	
+		<%= f.semantic_fields_for :room_equipments do |nf| %>
+			<%= nf.select :tag, @EquipmentCollection %>
+			<%= nf.text_field :quantity %>
+			<%= nf.link_to_remove "Remove" %>
+		<% end %>
+	<%= f.link_to_add "Add equipment", :room_equipments %></p>
+	<% end %>
 	<%= f.actions %>
  <% end %>
 

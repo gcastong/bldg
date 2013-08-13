@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+// require jquery.nested-fields
+// require cocoon
+//= require jquery_nested_form
+//= require jqplot
+// require jqplot/plugins/dateAxisRenderer
+// require jqplot/plugins/mobile
+//= require jqplot/plugins/dragable
+//= require jqplot/plugins/highlighter
+//= require jqplot/plugins/barRenderer
