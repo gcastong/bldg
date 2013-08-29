@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130813182414) do
+ActiveRecord::Schema.define(version: 20130819152953) do
 
   create_table "ashrae62s", force: true do |t|
     t.string   "version"
@@ -64,15 +64,58 @@ ActiveRecord::Schema.define(version: 20130813182414) do
     t.datetime "updated_at"
   end
 
+  create_table "plumbing_code_distributions", force: true do |t|
+    t.string   "fixture"
+    t.string   "MinSizeSupplyPipe"
+    t.decimal  "PrivateUseColdHydraulicLoad"
+    t.decimal  "PrivateUseHotHydraulicLoad"
+    t.decimal  "PrivateUseTotalHydraulicLoad"
+    t.decimal  "PublicUseHotHydraulicLoad"
+    t.decimal  "PublicUseColdHydraulicLoad"
+    t.decimal  "PublicUseTotalHydraulicLoad"
+    t.string   "Note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plumbing_code_drainages", force: true do |t|
+    t.string   "Fixture"
+    t.string   "MinimumSizeFixtureOutletPipe"
+    t.decimal  "HydraulicLoad"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plumbing_fixtures", force: true do |t|
+    t.string   "name"
+    t.string   "tag"
+    t.string   "CodeDrainageFixtureType"
+    t.string   "CodeWaterDistributionFixtureType"
+    t.boolean  "TypeOfUsage",                      limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "room_equipments", force: true do |t|
     t.string   "tag"
     t.integer  "room_id"
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "schedule"
   end
 
   add_index "room_equipments", ["room_id"], name: "index_room_equipments_on_room_id"
+
+  create_table "room_plumbing_fixtures", force: true do |t|
+    t.string   "tag"
+    t.integer  "quantity"
+    t.integer  "room_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "room_plumbing_fixtures", ["room_id"], name: "index_room_plumbing_fixtures_on_room_id"
 
   create_table "rooms", force: true do |t|
     t.string   "spacename"

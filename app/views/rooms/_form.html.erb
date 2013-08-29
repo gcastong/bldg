@@ -1,6 +1,13 @@
+<script>
+window.NestedFormEvents.prototype.insertFields = function(content, assoc, link) {
+ var $tr = $(link).closest('tr');
+ return $(content).insertBefore($tr);
+}
+</script>
 <% @ASHRAE2001Collection = Ashrae62.where(version: 2001).order("vocation ASC").map{ |s| ["#{s.vocation}", s.id]} %>
 <% @ASHRAE2007Collection = Ashrae62.where(version: 2007).order("vocation ASC").map{ |s| ["#{s.vocation}", s.id]} %>
 <% @EquipmentCollection = Equipment.order("tag ASC").map{ |s| ["#{s.tag}"+" - "+"#{s.name}", s.id]} %>
+<% @PlumbingFixtureCollection = PlumbingFixture.order("tag ASC").map{ |s| ["#{s.tag}"+" - "+"#{s.name}", s.id]} %>
  
 
   <% if @room.errors.any? %>
@@ -43,13 +50,51 @@
  	<% end %>
 
 	<%= f.inputs "Room Equipments", :id => "general" do %>
-		<%= f.semantic_fields_for :room_equipments do |nf| %>
-			<%= nf.select :tag, @EquipmentCollection %>
-			<%= nf.text_field :quantity %>
-			<%= nf.link_to_remove "Remove" %>
+		<table>
+		<tr>
+		<th>Name</th>
+		<th>Quantity</th>
+		<th></th>
+		</td>
+		<%= f.semantic_fields_for :room_equipments, :wrapper => false do |nf| %>
+			<tr class="fields">
+			<td>
+			<%= nf.hidden_field :id %>
+			<%= nf.select :tag, @EquipmentCollection, :include_blank => true %>
+			</td>			
+			<td><%= nf.text_field :quantity %></td>
+			<td><%= nf.link_to_remove "Remove" %></td>
+		</tr>	
 		<% end %>
-	<%= f.link_to_add "Add equipment", :room_equipments %></p>
+	<tr>	
+	<td><%= f.link_to_add "Add Equipment", :room_equipments %></td>
+	</tr>
+	</table>	
 	<% end %>
+	<br>
+	<%= f.inputs "Plumbing Fixtures", :id => "general" do %>
+		<table>
+		<tr>
+		<th>Name</th>
+		<th>Quantity</th>
+		<th></th>
+		</td>
+		<%= f.semantic_fields_for :room_plumbing_fixtures, :wrapper => false do |pf| %>
+			<tr class="fields">
+			<td>
+			<%= pf.hidden_field :id %>
+			<%= pf.select :tag, @PlumbingFixtureCollection, :include_blank => true %>
+			</td>			
+			<td><%= pf.text_field :quantity %></td>
+			<td><%= pf.link_to_remove "Remove" %></td>
+		</tr>		
+	 	<% end %>
+	<tr>	
+	<td><%= f.link_to_add "Add Plumbing Fixture", :room_plumbing_fixtures %></td>
+	</tr>
+	</table>
+	<% end %>
+
 	<%= f.actions %>
  <% end %>
 

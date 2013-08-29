@@ -1,5 +1,7 @@
 Bldg::Application.routes.draw do
   
+  resources :plumbing_fixtures
+
   resources :schedules
 
   get "equipment/show"

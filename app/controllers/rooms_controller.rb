@@ -109,7 +109,8 @@ class RoomsController < ApplicationController
 	:AirDistributionEffectiveness,
 	:Voz2001,
 	:Voz2007,
-	room_equipments_attributes: [:quantity, :tag, :id, :room_id, '_destroy' ]
+	room_equipments_attributes: [:quantity, :tag, :id, :room_id, '_destroy'],
+	room_plumbing_fixtures_attributes: [:quantity, :tag, :id, :room_id, '_destroy']
 	)
     end
 end
