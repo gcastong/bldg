@@ -4,31 +4,7 @@
 <p><%= link_to 'Equipment database', equipment_index_path %>
 <p><%= link_to 'Plumbing fixtures database', plumbing_fixtures_path %>
 
+<p><%= button_to "Generate Electric Equipment IDF", {:controller => "generate_idf", :action => 'ElectricEquipment'}, :method => :get %>
+<p><%= button_to "Download Room PDF", {:controller => "rooms", :action => 'reportall', :format => 'pdf' }, :method => :get %>
 
-<%= jqplot 800, 800, [
-[[1,1],[2,1],[3,1],[4,1],[5,1],[6,1],
- [7,1],[8,1],[9,1],[10,1],[11,1],[12,1],
- [13,1],[14,1],[15,1],[16,1],[17,1],[18,1],
- [19,1],[20,1],[21,1],[22,1],[23,1],[24,1]],
-[[1,0.5],[2,1],[3,1],[4,1],[5,1],[6,1],
- [7,1],[8,1],[9,1],[10,1],[11,1],[12,1],
- [13,1],[14,1],[15,1],[16,1],[17,1],[18,1],
- [19,1],[20,1],[21,1],[22,1],[23,1],[24,1]]
-], 
-		:axes => {:xaxis => {:min => 1, :max => 24, :ticks => [0,6,12,18,24]},
-			  :yaxis => {:min => 0, :max => 2, :ticks => [0.0,0.2,0.4,0.6,0.8,1.0,1.2]}	
-			 },		
-		:legend => {:show => true, location: 'ne'}, 
-		:highlighter => {:show => true }, 
-		:title => {:text => 'Schedule plot', :show => true},
-		:series => 
-			[
-			{:label => 'Week Schedule',
-			:isDragable => true,
-			:dragable => {:color => 'undefined', :constrainTo => 'y'}},
-			{:label => 'Week-end Schedule',
-			:isDragable => true,
-			:dragable => {:color => 'undefined', :constrainTo => 'y'}}
-			]
-		%>
-
+<p><%= link_to 'Room PDF', rooms_reportall_path(:format => 'pdf') %>

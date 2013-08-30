@@ -1,11 +1,11 @@
 Bldg::Application.routes.draw do
   
   resources :plumbing_fixtures
-
   resources :schedules
-
   get "equipment/show"
   get "welcome/index"
+  get "generate_idf/ElectricEquipment"
+  get "rooms/reportall"
   resources :equipment
   resources :ashrae62	
   root 'welcome#index'

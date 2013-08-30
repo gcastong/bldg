@@ -10,6 +10,9 @@ gem 'nested_form'
 #jqPlot
 gem 'jqplot-rails'
 
+#Prawn 
+gem 'prawn_rails'
+
 #Cocoon
 #gem 'cocoon'
 

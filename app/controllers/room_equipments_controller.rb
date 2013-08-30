@@ -36,4 +36,6 @@ class RoomEquipmentsController < ApplicationController
   #end
  end
 
+
+
 end

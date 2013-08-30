@@ -17,12 +17,10 @@ class RoomsController < ApplicationController
   # GET /rooms/new
   def new
     @room = Room.new
-#    @room_equipment = @room.room_equipments.new
   end
 
   # GET /rooms/1/edit
   def edit
-#    @room_equipment = @room.room_equipments.new
   end
 
   # POST /rooms
@@ -80,7 +78,13 @@ class RoomsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+ 
+ def reportall
+   @rooms = Room.all
+   respond_to do |format| 
+     format.pdf {render :layout => false}
+   end
+ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
