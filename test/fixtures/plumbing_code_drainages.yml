@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Fixture: MyString
+  MinimumSizeFixtureOutletPipe: MyString
+  HydraulicLoad: 9.99
+
+two:
+  Fixture: MyString
+  MinimumSizeFixtureOutletPipe: MyString
+  HydraulicLoad: 9.99

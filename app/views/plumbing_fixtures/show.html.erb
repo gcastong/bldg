@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plumbing_fixture.name %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @plumbing_fixture.tag %>
+</p>
+
+<p>
+  <strong>Code Water Distribution Fixture Type:</strong>
+  <%= @CodeDistribution.fixture %>
+</p>
+<p>
+  <strong>Code Drainage Fixture Type:</strong>
+  <%= @CodeDrainage.Fixture %>
+</p>
+
+<p>
+  <strong>Typeofusage:</strong>
+  <%= @plumbing_fixture.TypeOfUsage %>
+</p>
+
+<%= link_to 'Edit', edit_plumbing_fixture_path(@plumbing_fixture) %> |
+<%= link_to 'Back', plumbing_fixtures_path %>

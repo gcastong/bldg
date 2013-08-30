@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fixture: MyString
+  MinSizeSupplyPipe: MyString
+  PrivateUseColdHydraulicLoad: 9.99
+  PrivateUseHotHydraulicLoad: 9.99
+  PrivateUseTotalHydraulicLoad: 9.99
+  PublicUseHotHydraulicLoad: 9.99
+  PublicUseColdHydraulicLoad: 9.99
+  PublicUseTotalHydraulicLoad: 9.99
+  Note: MyString
+
+two:
+  fixture: MyString
+  MinSizeSupplyPipe: MyString
+  PrivateUseColdHydraulicLoad: 9.99
+  PrivateUseHotHydraulicLoad: 9.99
+  PrivateUseTotalHydraulicLoad: 9.99
+  PublicUseHotHydraulicLoad: 9.99
+  PublicUseColdHydraulicLoad: 9.99
+  PublicUseTotalHydraulicLoad: 9.99
+  Note: MyString

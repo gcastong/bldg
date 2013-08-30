@@ -1,0 +1,117 @@
+<%= semantic_form_for @schedule do |f| %>
+  <%= f.inputs do %>
+	<%= f.input :name, :label => "Name" %>
+	<%= f.input :scheduletype, :label => "Schedule Type", :as => :select, :collection => ["Fraction", "Temperature"] %>
+	<h2>Week Schedule</h2>	
+	<table>
+	<th>1</th>
+	<th>2</th>
+	<th>3</th>
+	<th>4</th>
+	<th>5</th>
+	<th>6</th>
+	<th>7</th>
+	<th>8</th>
+	<th>9</th>
+	<th>10</th>
+	<th>11</th>
+	<th>12</th>
+	<th>13</th>
+	<th>14</th>
+	<th>15</th>
+	<th>16</th>
+	<th>17</th>
+	<th>18</th>
+	<th>19</th>
+	<th>20</th>
+	<th>21</th>
+	<th>22</th>
+	<th>23</th>
+	<th>24</th>
+	<tr>
+		<td><%= f.input :wk_1, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_2, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_3, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_4, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_5, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_6, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_7, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_8, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_9, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_10, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_11, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_12, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_13, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_14, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_15, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_16, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_17, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_18, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_19, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_20, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_21, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_22, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_23, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :wk_24, :label => false, :input_html => { :maxlength => 3}%></td>
+		</td>		
+	</tr>
+	</table>
+	<h2>Week-end Schedule</h2>	
+	<table>
+	<th>1</th>
+	<th>2</th>
+	<th>3</th>
+	<th>4</th>
+	<th>5</th>
+	<th>6</th>
+	<th>7</th>
+	<th>8</th>
+	<th>9</th>
+	<th>10</th>
+	<th>11</th>
+	<th>12</th>
+	<th>13</th>
+	<th>14</th>
+	<th>15</th>
+	<th>16</th>
+	<th>17</th>
+	<th>18</th>
+	<th>19</th>
+	<th>20</th>
+	<th>21</th>
+	<th>22</th>
+	<th>23</th>
+	<th>24</th>
+	<tr>
+		<td><%= f.input :we_1, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_2, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_3, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_4, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_5, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_6, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_7, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_8, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_9, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_10, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_11, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_12, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_13, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_14, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_15, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_16, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_17, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_18, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_19, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_20, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_21, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_22, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_23, :label => false, :input_html => { :maxlength => 3}%></td>
+		<td><%= f.input :we_24, :label => false, :input_html => { :maxlength => 3}%></td>
+		</td>	
+	</tr>
+	</table>
+  <% end %>
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+<% end %>

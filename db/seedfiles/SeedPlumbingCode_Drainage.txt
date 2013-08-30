@@ -1,0 +1,245 @@
+PlumbingCodeDrainage.create(
+Fixture: 'Autopsy Table',
+MinimumSizeFixtureOutletPipe: '1.5',
+HydraulicLoad: '2')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Bathroom group - with flush tank',
+MinimumSizeFixtureOutletPipe: 'n/a',
+HydraulicLoad: '6')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Bathroom group - with direct flush valve',
+MinimumSizeFixtureOutletPipe: 'n/a',
+HydraulicLoad: '8')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Bathtub (with or without shower)',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Bath (foot, sitz or slab)',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Beer cabinet',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Bidet',
+MinimumSizeFixtureOutletPipe: '1 1/4',
+HydraulicLoad: '1')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Clothes washer - domestic',
+MinimumSizeFixtureOutletPipe: 'n/a',
+HydraulicLoad: '2')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Clothes washer - commercial',
+MinimumSizeFixtureOutletPipe: 'n/a',
+HydraulicLoad: '2')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Dental unit or cuspidor',
+MinimumSizeFixtureOutletPipe: '1 1/4',
+HydraulicLoad: '1')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Dishwasher - domestic type',
+MinimumSizeFixtureOutletPipe: '1 1/4',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Dishwasher - commercial type',
+MinimumSizeFixtureOutletPipe: '2',
+HydraulicLoad: '3')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Drinking fountain',
+MinimumSizeFixtureOutletPipe: '1 1/4',
+HydraulicLoad: '0.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Floor drain',
+MinimumSizeFixtureOutletPipe: '3',
+HydraulicLoad: '3')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Garbage grinder - commercial type',
+MinimumSizeFixtureOutletPipe: '2',
+HydraulicLoad: '3')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Icebox',
+MinimumSizeFixtureOutletPipe: '1 1/4',
+HydraulicLoad: '1')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Laundry tray - single or double units',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Laundry tray - 3 compartments',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '2')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Lavatory - barber or beauty parlor',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Lavatory - dental',
+MinimumSizeFixtureOutletPipe: '1 1/4',
+HydraulicLoad: '1')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Lavatory - (1 1/4 trap)',
+MinimumSizeFixtureOutletPipe: '1 1/4',
+HydraulicLoad: '1')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Lavatory - (1 1/2 trap)',
+MinimumSizeFixtureOutletPipe: '1 1/4',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Macerating toilet system',
+MinimumSizeFixtureOutletPipe: '3/4',
+HydraulicLoad: '4')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Potato peeler',
+MinimumSizeFixtureOutletPipe: '2',
+HydraulicLoad: '3')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Shower drain - 1 head',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Shower drain - 2 to 3 heads',
+MinimumSizeFixtureOutletPipe: '2',
+HydraulicLoad: '3')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Shower drain - 4 to 6 heads',
+MinimumSizeFixtureOutletPipe: '3',
+HydraulicLoad: '6')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Sink - domestic',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Sink - other sinks',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '2')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Urinal - pedestal, siphon-jet or blowout type',
+MinimumSizeFixtureOutletPipe: '2',
+HydraulicLoad: '4')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Urinal - stall - washout type',
+MinimumSizeFixtureOutletPipe: '2',
+HydraulicLoad: '2')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Urinal - wall - washout type',
+MinimumSizeFixtureOutletPipe: '1 1/2',
+HydraulicLoad: '1.5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Urinal - wall - other types',
+MinimumSizeFixtureOutletPipe: '2',
+HydraulicLoad: '3')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Water closet - with flush tank',
+MinimumSizeFixtureOutletPipe: '3',
+HydraulicLoad: '4')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Water closet - with direct flush valve',
+MinimumSizeFixtureOutletPipe: '3',
+HydraulicLoad: '6')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Trap - 1 1/4 inches',
+MinimumSizeFixtureOutletPipe: '',
+HydraulicLoad: '1')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Trap - 1 1/2 inches',
+MinimumSizeFixtureOutletPipe: '',
+HydraulicLoad: '2')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Trap - 2 inches',
+MinimumSizeFixtureOutletPipe: '',
+HydraulicLoad: '3')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Trap - 2 1/2 inches',
+MinimumSizeFixtureOutletPipe: '',
+HydraulicLoad: '4')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Trap - 3 inches',
+MinimumSizeFixtureOutletPipe: '',
+HydraulicLoad: '5')
+
+
+PlumbingCodeDrainage.create(
+Fixture: 'Trap - 4 inches',
+MinimumSizeFixtureOutletPipe: '',
+HydraulicLoad: '6')
+

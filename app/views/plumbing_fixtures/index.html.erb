@@ -1,0 +1,55 @@
+<h1>Listing Plumbing Fixtures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Name</th>
+      <th>Code Drainage Fixture Type</th>
+      <th>Code Water Distribution Fixture Type</th>
+      <th>Type Of Usage</th>
+      <th>Hydraulic Load (Cold)</th>
+      <th>Hydraulic Load (Hot)</th>
+      <th>Hydraulic Load (Total)</th>
+      <th>Hydraulic Load (Drainage)</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plumbing_fixtures.order("tag ASC").each do |plumbing_fixture| %>
+      <tr>
+        <td><%= plumbing_fixture.tag %></td>
+        <td><%= plumbing_fixture.name %></td>
+        <td><%= PlumbingCodeDrainage.find(plumbing_fixture.CodeDrainageFixtureType).Fixture %></td>
+        <td><%= PlumbingCodeDistribution.find(plumbing_fixture.CodeWaterDistributionFixtureType).fixture %></td>
+        
+	<% if plumbing_fixture.TypeOfUsage? %>
+        <td>Domestic</td>
+		<td><%= PlumbingCodeDistribution.find(plumbing_fixture.CodeWaterDistributionFixtureType).PrivateUseColdHydraulicLoad %></td>
+		<td><%= PlumbingCodeDistribution.find(plumbing_fixture.CodeWaterDistributionFixtureType).PrivateUseHotHydraulicLoad %></td>
+		<td><%= PlumbingCodeDistribution.find(plumbing_fixture.CodeWaterDistributionFixtureType).PrivateUseTotalHydraulicLoad %></td>
+		<td><%= PlumbingCodeDrainage.find(plumbing_fixture.CodeDrainageFixtureType).HydraulicLoad %></td>
+	<% else %>
+        <td>Commercial</td>
+		<td><%= PlumbingCodeDistribution.find(plumbing_fixture.CodeWaterDistributionFixtureType).PublicUseColdHydraulicLoad %></td>
+		<td><%= PlumbingCodeDistribution.find(plumbing_fixture.CodeWaterDistributionFixtureType).PublicUseHotHydraulicLoad %></td>
+		<td><%= PlumbingCodeDistribution.find(plumbing_fixture.CodeWaterDistributionFixtureType).PublicUseTotalHydraulicLoad %></td>
+		<td><%= PlumbingCodeDrainage.find(plumbing_fixture.CodeDrainageFixtureType).HydraulicLoad %></td>
+	<% end %>
+	
+	<td><%= link_to 'Show', plumbing_fixture %></td>
+        <td><%= link_to 'Edit', edit_plumbing_fixture_path(plumbing_fixture) %></td>
+        <td><%= link_to 'Destroy', plumbing_fixture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plumbing fixture', new_plumbing_fixture_path %>
+<br>
+<%= link_to 'Home', welcome_index_path %>

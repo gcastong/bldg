@@ -1,0 +1,52 @@
+class ChangeScheduleDefaultValues < ActiveRecord::Migration
+  def change
+    	change_column :schedules, :wk_1, :decimal, :default => 0.5
+    	change_column :schedules, :wk_2, :decimal, :default => 0.5
+    	change_column :schedules, :wk_3, :decimal, :default => 0.5
+    	change_column :schedules, :wk_4, :decimal, :default => 0.5
+    	change_column :schedules, :wk_5, :decimal, :default => 0.5
+    	change_column :schedules, :wk_6, :decimal, :default => 0.5
+    	change_column :schedules, :wk_7, :decimal, :default => 0.5
+    	change_column :schedules, :wk_8, :decimal, :default => 0.5
+    	change_column :schedules, :wk_9, :decimal, :default => 0.5
+    	change_column :schedules, :wk_10, :decimal, :default => 0.5
+    	change_column :schedules, :wk_11, :decimal, :default => 0.5
+    	change_column :schedules, :wk_12, :decimal, :default => 0.5
+    	change_column :schedules, :wk_13, :decimal, :default => 0.5
+    	change_column :schedules, :wk_14, :decimal, :default => 0.5
+    	change_column :schedules, :wk_15, :decimal, :default => 0.5
+    	change_column :schedules, :wk_16, :decimal, :default => 0.5
+    	change_column :schedules, :wk_17, :decimal, :default => 0.5
+    	change_column :schedules, :wk_18, :decimal, :default => 0.5
+    	change_column :schedules, :wk_19, :decimal, :default => 0.5
+    	change_column :schedules, :wk_20, :decimal, :default => 0.5
+    	change_column :schedules, :wk_21, :decimal, :default => 0.5
+    	change_column :schedules, :wk_22, :decimal, :default => 0.5
+    	change_column :schedules, :wk_23, :decimal, :default => 0.5
+    	change_column :schedules, :wk_24, :decimal, :default => 0.5
+    	change_column :schedules, :we_1, :decimal, :default => 0.5
+    	change_column :schedules, :we_2, :decimal, :default => 0.5
+    	change_column :schedules, :we_3, :decimal, :default => 0.5
+    	change_column :schedules, :we_4, :decimal, :default => 0.5
+    	change_column :schedules, :we_5, :decimal, :default => 0.5
+    	change_column :schedules, :we_6, :decimal, :default => 0.5
+    	change_column :schedules, :we_7, :decimal, :default => 0.5
+    	change_column :schedules, :we_8, :decimal, :default => 0.5
+    	change_column :schedules, :we_9, :decimal, :default => 0.5
+    	change_column :schedules, :we_10, :decimal, :default => 0.5
+    	change_column :schedules, :we_11, :decimal, :default => 0.5
+    	change_column :schedules, :we_12, :decimal, :default => 0.5
+    	change_column :schedules, :we_13, :decimal, :default => 0.5
+    	change_column :schedules, :we_14, :decimal, :default => 0.5
+    	change_column :schedules, :we_15, :decimal, :default => 0.5
+    	change_column :schedules, :we_16, :decimal, :default => 0.5
+    	change_column :schedules, :we_17, :decimal, :default => 0.5
+    	change_column :schedules, :we_18, :decimal, :default => 0.5
+    	change_column :schedules, :we_19, :decimal, :default => 0.5
+    	change_column :schedules, :we_20, :decimal, :default => 0.5
+    	change_column :schedules, :we_21, :decimal, :default => 0.5
+    	change_column :schedules, :we_22, :decimal, :default => 0.5
+    	change_column :schedules, :we_23, :decimal, :default => 0.5
+    	change_column :schedules, :we_24, :decimal, :default => 0.5
+  end
+end

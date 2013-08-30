@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  tag: MyString
+  CodeDrainageFixtureType: MyString
+  CodeWaterDistributionFixtureType: MyString
+  TypeOfUsage: MyString
+
+two:
+  name: MyString
+  tag: MyString
+  CodeDrainageFixtureType: MyString
+  CodeWaterDistributionFixtureType: MyString
+  TypeOfUsage: MyString

@@ -1,0 +1,2 @@
+module GenerateIdfHelper
+end

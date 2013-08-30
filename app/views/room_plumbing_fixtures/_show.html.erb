@@ -1,0 +1,19 @@
+<table>
+<tr>
+ <th>Tag</th>
+ <th>Name</th>
+ <th>Quantity</th>
+ <th></th>
+</tr>
+
+
+<% @room.room_plumbing_fixtures.each do |pf| %>
+<% @pf = PlumbingFixture.find(pf.tag) %>
+<tr> 
+ <td><%= @pf.tag %></td>
+ <td><%= @pf.name %></td>
+ <td><%= pf.quantity %></td>
+</tr>
+<% end %>
+</table>
+

@@ -1,0 +1,19 @@
+<% @PlumbingCodeDistributionCollection = PlumbingCodeDistribution.order("fixture ASC").map{ |s| ["#{s.fixture}", s.id]} %>
+<% @PlumbingCodeDrainageCollection = PlumbingCodeDrainage.order("Fixture ASC").map{ |s| ["#{s.Fixture}", s.id]} %>
+
+
+<%= semantic_form_for @plumbing_fixture do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :tag %>
+    <%= f.input :CodeWaterDistributionFixtureType, :as => :select, :collection => @PlumbingCodeDistributionCollection, :label => "Plumbing Code Fixture type (Distribution)" %>
+    <%= f.input :CodeDrainageFixtureType, :as => :select, :collection => @PlumbingCodeDrainageCollection, :label => "Plumbing Code Fixture type (Drainage)" %>
+    <%= f.input :TypeOfUsage, :as => :radio, :collection => [["Domestic",true],["Commercial",false]], :label => "Type of Usage" %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+<% end %>
+
+

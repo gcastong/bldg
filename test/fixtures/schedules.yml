@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  type: 
+  wk_1: 1
+  we_1: 1
+
+two:
+  name: MyString
+  type: 
+  wk_1: 1
+  we_1: 1
