@@ -6,6 +6,7 @@ Bldg::Application.routes.draw do
   get "welcome/index"
   get "generate_idf/ElectricEquipment"
   get "rooms/reportall"
+  get "rooms/report62"
   resources :equipment
   resources :ashrae62	
   root 'welcome#index'

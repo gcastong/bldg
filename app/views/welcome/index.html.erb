@@ -8,3 +8,4 @@
 <p><%= button_to "Download Room PDF", {:controller => "rooms", :action => 'reportall', :format => 'pdf' }, :method => :get %>
 
 <p><%= link_to 'Room PDF', rooms_reportall_path(:format => 'pdf') %>
+<p><%= link_to 'ASHRAE 62.1 Report', rooms_report62_path(:format => 'pdf') %>
